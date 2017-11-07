@@ -1,5 +1,5 @@
-import ADD_LETTER from './actions/add-letter'
-import wordList from './fixtures/word-index'
+import {ADD_LETTER} from '../actions/add-letter'
+import wordList from '../fixtures/word-index'
 
 // shuffle array, hide letters
 
@@ -14,13 +14,16 @@ const underscores = currentWord.replace(/[a-z]/g, "_ ")
 
 // return correct user guesses
 
-function returnGuess(realword, hiddenword, payload){
-  var splitWord = realword.split("");
-  var correctLetters = splitWord.map(function(letter){
-    return payload.includes(letter) ? letter : "_" ;
-  });
-  return correctLetters.join(" ");
+function returnGuess(word, payload, gameWord) {
+  return word.split("").map(function(guess, index) {
+    if (guess === payload || gameWord.split(" ")[index] !== "_") {
+      return guess;
+    } else {
+      return "_"
+    }
+  }).join(" ")
 }
+
 
 const initialState = {
   hiddenWord: currentWord,
@@ -29,11 +32,14 @@ const initialState = {
   wrongGuessCount: 0
 }
 
-
 export default (currentState = initialState, { type, payload } = {}) => {
   switch(type) {
-    case ADD_LETTER: // INCREASE WGC OR ADD CORRECTLETTERS, ADD GUESSED LETTERS TO ARRAY
+    case ADD_LETTER:
+    return Object.assign({}, currentState, {
+      userGuess: currentState.userGuess.concat(payload),
+      gameWord: returnGuess(currentState.hiddenWord, payload, currentState.gameWord)
+    })
     default:
       return currentState
+    }
   }
-}

@@ -21,9 +21,9 @@ class userInput extends PureComponent {
     })
   }
 
-  guess(event) {
+  letter(event) {
     event.preventDefault();
-    this.props.guess(this.state.value)
+    this.props.letter(this.state.value)
     this.setState({
       value: ''
     })
@@ -31,15 +31,15 @@ class userInput extends PureComponent {
 
   render() {
     return (
-      <form onSubmit={this.guess.bind(this)}>
-        <label>
-          Enter a letter:
+      <div className="letters">
+      <form onSubmit={this.letter.bind(this)}>
           <input type="text" value={ this.state.value } onChange={this.handleChange.bind(this)}/>
-        </label>
         <input type="submit" value="Submit" />
       </form>
+      </div>
     );
   }
 }
+const mapStateToProps = ({ letter }) => ({ letter })
 
-export default connect(null, { letter })(userInput)
+export default connect(mapStateToProps, { letter })(userInput)

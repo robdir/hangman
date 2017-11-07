@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
-import userInput from './userInput'
-import showWord from './showWord'
+import Input from './userInput'
+import Word from './showWord'
 import { connect } from 'react-redux'
 
 
@@ -8,15 +8,17 @@ class GameContainer extends PureComponent {
     render() {
       return(
         <div>
-          <h1>Welcome to Hangman</h1>
-          <showWord guessedWord={ this.props.gameLogic.gameWord }/>
-          <userInput wrongGuessCount={ this.props.gameLogic.wrongGuessCount }/>
-          <div><p>Guessed Letters: </p></div>
+          <Word hiddenWord={ this.props.gameLogic.gameWord }/>
+          <Input/>
+          <div><p>Previously guessed letters:</p></div>
           <p>{ this.props.gameLogic.userGuess.join(" ") }</p>
+          <div>
+          <p> Guesses remaining: </p>
+           </div>
         </div>
       )
     }
   }
 
-const mapStateToProps = ({ hangman }) => ({ hangman })
+const mapStateToProps = ({ gameLogic }) => ({ gameLogic })
 export default connect (mapStateToProps)(GameContainer)
