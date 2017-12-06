@@ -24,15 +24,15 @@ function returnGuess(word, payload, gameWord) {
   }).join(" ")
 }
 
-function wrongGuess(word, payload, guesscount) {
-  if (!word.includes(payload)) guesscount++ }
+function wrongGuess(word, payload) {
+  if (!word.includes(payload)) return payload }
 
 
 const initialState = {
   hiddenWord: currentWord,
   gameWord: underscores,
   userGuess: [],
-  wrongGuessCount: 0
+  wrongGuessCount: []
 }
 
 export default (currentState = initialState, { type, payload } = {}) => {
@@ -42,7 +42,7 @@ export default (currentState = initialState, { type, payload } = {}) => {
         ...currentState ,
         gameWord: returnGuess(currentState.hiddenWord, payload, currentState.gameWord),
         userGuess: currentState.userGuess.concat(payload),
-        wrongGuessCount: wrongGuess(currentState.hiddenWord, payload, currentState.wrongGuessCount)
+        wrongGuessCount: wrongGuess(currentState.hiddenWord, currentState.wrongGuessCount.concat(payload))
       }
 
     default :
