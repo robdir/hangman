@@ -15,7 +15,7 @@ class GameContainer extends PureComponent {
           <p>{ this.props.gameLogic.userGuess.join(" ") }</p>
           <div>
           <p> Guesses remaining: </p>
-            <p>{(10 - (this.props.gameLogic.wrongGuessCount.length)) / 2} </p>
+            <p> {((this.props.gameLogic.gameWord.length / 2) - (this.props.gameLogic.wrongGuessCount.length))} </p>
            </div>
            <div className="image">
            <Photo photoId={ this.props.gameLogic.wrongGuessCount.length } />

@@ -8,8 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <p className="App-intro">
+        <br/>
         Welcome to Hangman!
-        <hr/>
+        <br/>
         <br/>
         Type a letter to kick things off!
         </p>
