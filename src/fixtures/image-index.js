@@ -1,10 +1,9 @@
 export default [
-'../hangman-images/0',
-'../hangman-images/1',
-'../hangman-images/2',
-'../hangman-images/3',
-'../hangman-images/4',
-'../hangman-images/5',
-'../hangman-images/6',
-'../hangman-images/7'
+  'images/0.jpg',
+  'images/1.jpg',
+  'images/2.jpg',
+  'images/3.jpg',
+  'images/4.jpg',
+  'images/5.jpg',
+  'images/6.jpg'
 ]

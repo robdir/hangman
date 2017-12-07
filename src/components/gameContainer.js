@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import Input from './userInput'
 import Word from './showWord'
-import Image from './image'
+import Photo from './image'
 import { connect } from 'react-redux'
 
 
@@ -15,10 +15,10 @@ class GameContainer extends PureComponent {
           <p>{ this.props.gameLogic.userGuess.join(" ") }</p>
           <div>
           <p> Guesses remaining: </p>
-            <p>{((this.props.gameLogic.gameWord.length) - (this.props.gameLogic.wrongGuessCount.length)) / 2} </p>
+            <p>{(10 - (this.props.gameLogic.wrongGuessCount.length)) / 2} </p>
            </div>
            <div className="image">
-           <Image photoId={ this.props.gameLogic.wrongGuessCount } />
+           <Photo photoId={ this.props.gameLogic.wrongGuessCount.length } />
            </div>
         </div>
       )
