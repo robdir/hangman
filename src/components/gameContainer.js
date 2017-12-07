@@ -14,7 +14,7 @@ class GameContainer extends PureComponent {
           <p>{ this.props.gameLogic.userGuess.join(" ") }</p>
           <div>
           <p> Guesses remaining: </p>
-            <p>{(this.props.gameLogic.gameWord.length) - (this.props.gameLogic.wrongGuessCount.length)} </p>
+            <p>{((this.props.gameLogic.gameWord.length) - (this.props.gameLogic.wrongGuessCount.length)) / 2} </p>
            </div>
         </div>
       )
