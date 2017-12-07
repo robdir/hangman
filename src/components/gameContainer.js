@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class GameContainer extends PureComponent {
     render() {
       return(
-        <div>
+        <div className="game">
           <Word hiddenWord={ this.props.gameLogic.gameWord }/>
           <Input/>
           <div><p>Previously guessed letters:</p></div>

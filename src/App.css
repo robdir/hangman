@@ -14,3 +14,13 @@
 .App-intro {
   font-size: large;
 }
+
+.game {
+  border: 2px Black Solid;
+  border-radius: 10px;
+  max-width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
