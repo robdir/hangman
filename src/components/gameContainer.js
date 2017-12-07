@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import Input from './userInput'
 import Word from './showWord'
 import { connect } from 'react-redux'
+import img from '../hangman-images/0.jpg'
 
 
 class GameContainer extends PureComponent {
@@ -15,6 +16,9 @@ class GameContainer extends PureComponent {
           <div>
           <p> Guesses remaining: </p>
             <p>{((this.props.gameLogic.gameWord.length) - (this.props.gameLogic.wrongGuessCount.length)) / 2} </p>
+           </div>
+           <div className="image">
+           <img src={img} alt="hangman" />
            </div>
         </div>
       )
