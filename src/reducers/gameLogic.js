@@ -27,7 +27,6 @@ function returnGuess(word, payload, gameWord) {
 function wrongGuess(word, payload) {
   if (!word.includes(payload)) return payload}
 
-
 const initialState = {
   hiddenWord: currentWord,
   gameWord: underscores,
