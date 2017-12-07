@@ -22,3 +22,11 @@
   margin-top: 50px;
   margin-bottom: auto;
 }
+
+img{
+  position: relative;
+  margin-right: 800px;
+  margin-left: auto;
+  margin-top: -400px;
+  margin-bottom: auto;
+}
