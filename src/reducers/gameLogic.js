@@ -28,6 +28,9 @@ function wrongGuess(word, payload, count) {
   if  (!word.includes(payload))
       {return (count+1)}
     else
+    if  (count === 1)
+        {window.alert("Game Over!")}
+    else
       {return count}
   }
 
