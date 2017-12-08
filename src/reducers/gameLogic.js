@@ -25,8 +25,13 @@ function returnGuess(word, payload, gameWord) {
 }
 
 function wrongGuess(word, payload, count) {
-  if (!word.includes(payload)) {return (count+1)}
-    else {return count}
+  if  (!word.includes(payload))
+      {return (count+1)}
+  else
+    if  (count >= word.length)
+        {window.alert("Game Over!")}
+    else
+      {return count}
   }
 
 const initialState = {
@@ -40,10 +45,10 @@ export default (currentState = initialState, { type, payload } = {}) => {
   switch(type) {
     case ADD_LETTER:
       return {
-        ...currentState ,
+        ...currentState,
         gameWord: returnGuess(currentState.hiddenWord, payload, currentState.gameWord),
         userGuess: currentState.userGuess.concat(payload),
-        wrongGuessCount: wrongGuess(currentState.hiddenWord, payload, currentState.wrongGuessCount)
+        wrongGuessCount: wrongGuess(currentState.hiddenWord, payload, currentState.wrongGuessCount),
       }
 
     default :
